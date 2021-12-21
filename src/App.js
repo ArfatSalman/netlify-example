@@ -88,7 +88,7 @@ function AllProducts() {
     <>
       <h1>All Products</h1>
       {products.map((product) => {
-        const { product_name, qty, price, _id, isFav } = product;
+        const { product_name, _id, isFav } = product;
         return (
           <div key={_id}>
             <h3> {product_name} </h3>
@@ -123,7 +123,7 @@ function UserFav({ isLoggedIn }) {
       <h1 style={{ color: 'lightblue' }}>Fav Products</h1>
       {isLoggedIn ? (
         products.map((product) => {
-          const { product_name, qty, price, _id } = product;
+          const { product_name, _id } = product;
           return (
             <div key={_id}>
               <h3> {product_name} </h3>
@@ -139,7 +139,7 @@ function UserFav({ isLoggedIn }) {
 
 function Homepage() {
   const history = useHistory();
-  const [isLoggedIn, setIsLoggedIn] = useState(function () {
+  const [isLoggedIn] = useState(function () {
     const token = localStorage.getItem('token');
     //! simplify this -- for clarity (token !== undefined)
     if (token) {
